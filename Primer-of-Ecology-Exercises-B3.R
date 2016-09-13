@@ -29,3 +29,71 @@ rep(1:3, 2)
 
 ##Generates a sequence composed of the numbers 1, 2 and 3, each number printed twice before the next one
 rep(1:3, each = 2)
+
+##Calculates the sum of the elements in Y
+sum(Y)
+
+##Calculates the mean of the elements in Y
+mean(Y)
+
+##Returns the largest element of Y
+max(Y)
+
+##Returns the length of Y
+length(Y)
+
+##Returns a summary containing the maximum, minimum, mean, median, 1st and 3rd quartiles
+summary(Y)
+
+##Creates and prints a vector containing the strings "Sarah" and "Yunluan"
+Names <- c("Sarah", "Yunluan")
+Names
+
+##Creates and prints a vector containing logical values
+b <- c(TRUE, FALSE)
+b
+
+##Returns the class of the elements in Y
+class(Y)
+
+##Returns the class of the elements in b
+class(b)
+
+##Creates a new vector containing for each position TRUE if the corresponding element in Y is larger than 10 and FALSE otherwise
+Y > 10
+
+##Creates a new vector containing for each position TRUE if the corresponding element in Y is larger than the mean of Y and FALSE otherwise
+Y > mean(Y)
+
+##Creates a new vector containing for each position TRUE if the corresponding element in Y is not equal to 11 and FALSE otherwise
+Y != 11
+
+##Creates the vectors a and b and then returns a new vector that contains in each position the sum of the corresponding elements from a and b
+a <- 1:3
+b <- 4:6
+a + b
+
+##Returns a new vector that contains in each position the product of the corresponding elements from a and b
+a * b
+
+##Returns a new vector that contains in each position the division of the corresponding element from a by the corresponding element from b
+a / b
+
+##Adds 1 to each element in a and returns the resulting vector
+a + 1
+
+##Multiplies each element in a by 2 and returns the resulting vector
+a * 2
+
+##Takes the inverse of each element in a and returns the resulting vector
+1/a
+
+##Extends the vector 1:2 to match the length of a and then multiplies the elements in each vector. Shows a warning
+a * 1:2
+
+##Does the same as above, but with no warning
+a * c(1, 2, 1)
+
+##Extends the vector 1:2 to match the length of 1:4 and then multiplies the elements in each vector. Doesn't show a warning because the length of the longer vector is a multiple of the length of the smaller vector
+1:4 * 1:2
+
