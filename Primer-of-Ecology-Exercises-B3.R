@@ -97,3 +97,37 @@ a * c(1, 2, 1)
 ##Extends the vector 1:2 to match the length of 1:4 and then multiplies the elements in each vector. Doesn't show a warning because the length of the longer vector is a multiple of the length of the smaller vector
 1:4 * 1:2
 
+##Returns the first element in Y
+Y[1]
+
+##Returns the first, second and third elements in Y
+Y[1:3]
+
+##Returns all elements in Y greater than the mean of Y
+Y[Y > mean(Y)]
+
+##Creatas the array a containing integers and one NA and then prints it to the screen
+a <- c(5, 3, 6, NA)
+a
+
+##Returns a logical vector containing TRUE if the corresponding element in Y is NA and FALSE otherwise
+is.na(a)
+
+##Returns the logical opposite of the vector above, i.e., a logical vector that is FALSE if the corresponding element in Y is NA and TRUE otherwise
+!is.na(a)
+
+##Returns the elements in a that are not NA
+a[!is.na(a)]
+
+##Similar to above, but also returns the positions of the elements containing NAs in a
+na.exclude(a)
+
+##Calculates the mean of a, but returns NA, because a contains NAs
+mean(a)
+
+##Calculates the mean of a excluding NA entries
+mean(a, na.rm = TRUE)
+
+##Creates a new vector conaining only the non-NA entries of a and calculates its mean
+d <- na.exclude(a)
+mean(d)
