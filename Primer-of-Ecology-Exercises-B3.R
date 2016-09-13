@@ -163,3 +163,24 @@ M[, 2]
 
 ##Returns all rows and columns of M, i.e., returns M
 M[, ]
+
+##Creates a data frame containing plant names, treatment types, height and width, stores it in dat and then prints it on the screen
+dat <- data.frame(species = c("S.altissima", "S.rugosa","E.graminifolia", "A. pilosus"),
+                  treatment = factor(c("Control","Water", "Control", "Water")),
+                  height = c(1.1,0.8, 0.9, 1), width = c(1, 1.7, 0.6, 0.2))
+dat
+
+##Prints the second entry in dat
+dat[, 2]
+
+##Prints the fourth column (width) for the third entry in dat
+dat[3, 4]
+
+##Prints a logical vector containing TRUE if the corresponding entry in dat has 'Water' in the second column and FALSE otherwise
+dat[, 2] == "Water"
+
+##Prints only the entries of dat that have "Water" in the second column
+dat[ dat[, 2] == "Water", ]
+
+##Does the same as above, but with a different function
+subset(dat, treatment == "Water")
