@@ -1,22 +1,22 @@
 #!/usr/bin/env Rscript
 
-##gets help for "mean" function
+writeLines("\n\tgets help for 'mean' function\n")
 '?'(mean)
 
-##Same result, with different command
+writeLines("\n\tSame result, with different command\n")
 help("mean")
 
-##Searches for functions related to the keyword "mean"
+writeLines("\n\tSearches for functions related to the keyword 'mean'\n")
 help.search("mean")
 
-##Returns similar information as above, but in the form of an array containing only thw names of objects matching the search
+writeLines("\n\tReturns similar information as above, but in the form of an array containing only thw names of objects matching the search\n")
 apropos("mean")
 
-##Opens a webpage on default browser to search for help pages with the keyword "violin"
+writeLines("\n\tOpens a webpage on default browser to search for help pages with the keyword 'violin'\n")
 RSiteSearch("violin")
 
-##Similar as above, but searches only for functions
+writeLines("\n\tSimilar as above, but searches only for functions\n")
 RSiteSearch("violin", restrict = c("functions"))
 
-#Opens help on the RSiteSearch function
+writeLines("\n\tOpens help on the RSiteSearch function\n")
 help(RSiteSearch)
