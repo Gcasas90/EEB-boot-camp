@@ -106,7 +106,7 @@ Y[1:3]
 ##Returns all elements in Y greater than the mean of Y
 Y[Y > mean(Y)]
 
-##Creatas the array a containing integers and one NA and then prints it to the screen
+##Creatas the array a containing integers and one NA, saes it in a, and then prints it to the screen
 a <- c(5, 3, 6, NA)
 a
 
@@ -128,6 +128,38 @@ mean(a)
 ##Calculates the mean of a excluding NA entries
 mean(a, na.rm = TRUE)
 
-##Creates a new vector conaining only the non-NA entries of a and calculates its mean
+##Creates a new vector conaining only the non-NA entries of a, saves it in d, and calculates its mean
 d <- na.exclude(a)
 mean(d)
+
+##Returns a 2x2 matrix containing the letters 'a', 'b', 'c' and 'd', filling the matrix by columns
+matrix(letters[1:4], ncol=2)
+
+##Creates a 2x2 matrix containing the numbers frpoom 1 to 4, filling the matrix by columns, saves it in M, and then prints it on the screen
+M <- matrix(1:4, ncol=2)
+M
+
+##Creates a 2x2 matrix containing the numbers frpoom 1 to 4, filling the matrix by rows, saves it in M2, and then prints it on the screen
+M2 <- matrix(1:4, ncol=2, byrow = TRUE)
+M2
+
+##Creates a diagonal 2x2 matrix with every diagonal entry equal to 1, then prints it to the screen
+I <- diag(1, nrow = 2)
+I
+
+## Calculates the inverse of M and prints M times its inverse
+Minv <- solve(M)
+M %*% Minv
+
+
+##Returns the element from the first row and second column in M
+M[1, 2]
+
+##Returns the elements from the first and second columns in the first row in M
+M[1, 1:2]
+
+##Returns the second column of M
+M[, 2]
+
+##Returns all rows and columns of M, i.e., returns M
+M[, ]
