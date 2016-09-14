@@ -1,0 +1,17 @@
+#!/usr/bin/env Rscript
+
+## Samples 1000 values from a normal distribution with mean 0 and standard deviation 1
+s1 <- rnorm(1000, mean = 0, sd = 1)
+
+## Samples 1000 values from a normal distribution with mean 0 and standard deviation 3
+s3 <- rnorm(1000, mean = 0, sd = 3)
+
+## Plots the histograms of s1 and s3 in a single panel and saves them to a file
+pdf(file = "Normal_hist.pdf", width = 4, height = 7)
+
+par(mfrow = c(2, 1), mar = c(4, 4, 3, 2)) # Sets ploting area and margins
+
+hist(s1, col = 2, xlab = "Value", main = "Sigma = 1")
+hist(s3, col = 2, xlab = "Value", main = "Sigma = 3")
+
+dev.off()
