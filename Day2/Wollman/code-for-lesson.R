@@ -19,7 +19,7 @@ setosa=iris[iris$Species=='setosa',] ## assign only the rows that belong to seto
 virginica=iris[iris$Species=='virginica',] ## assign only the rows that belong to virginica and all the columns in the data frame to a variable named "virginica"
 
 # plot the sepal lengths of  setosa and virginica
-windows() # opens the figure in a new window. use the command quartz() for macs
+dev.new() # opens the figure in a new window. use the command quartz() for macs
 par(mar=c(4, 4, 3, 2)) # set the margins
 boxplot(setosa$Sepal.Length, virginica$Sepal.Length, # the data to plot
 		names=c('Setosa','Virginica'),ylab="Sepal Length", # label the axes 
@@ -37,7 +37,7 @@ t.test(setosa$Sepal.Length, virginica$Sepal.Length) # this will display the resu
 
 # comparing means of more than two groups
 # plot all three species
-windows() # open a new figure window
+dev.new() # open a new figure window
 plot(iris$Species, iris$Sepal.Length, # data to plot
 		ylab="Sepal Length", # label axes
 	col=c("hotpink", "plum", "cornflowerblue"), las=1, cex.axis=1.5,cex.lab=1.5) # make figure pretty
@@ -49,7 +49,7 @@ summary(anova1) # look at the results of the statistical test
 TukeyHSD(anova1) # examine each pair using a Tukey test
 
 ## Add the results of the Tukey test to the plot:
-windows() # open a new figure window
+dev.new() # open a new figure window
 plot(iris$Species, iris$Sepal.Length,ylab="Sepal Length", # data to plot and label axes
 		ylim=c(4,10), # set the y limits to make space for stats test results
 		col=c("hotpink", "plum", "cornflowerblue"), las=1, cex.axis=1.5,cex.lab=1.5) # make figure pretty
@@ -70,7 +70,7 @@ points(c(1,2,3),c(9,9,9), # location of circles
 
 ## are sepal and petal length correlated?
 # let's plot these first
-windows() # set a new figure
+dev.new() # set a new figure
 plot(iris$Petal.Length,iris$Sepal.Length, # data to plot 
 		xlab='Petal length',ylab='Sepal length', # label your axes
 		pch=16,las=1,cex.axis=1.5,cex.lab=1.5) # make the figure pretty
@@ -88,7 +88,7 @@ cols=sub('virginica',"cornflowerblue",cols)
 cols2=c("hotpink", "plum", "cornflowerblue")[unclass(iris$Species)]
 
 # plot the correlation with color codes by species
-windows()
+dev.new()
 plot(iris$Petal.Length,iris$Sepal.Length, xlab='Petal length',ylab='Sepal length', # same as above...
 		col=cols, # add color
 		pch=16,las=1,cex.axis=1.5,cex.lab=1.5) # same as above
@@ -105,7 +105,7 @@ fit_with_sp_with_int=lm(Sepal.Length ~ Petal.Length * Species - 1, data=iris)
 summary(fit_with_sp_with_int)
 
 # exploratory analysis...
-windows()
+dev.new()
 plot(iris, col=cols2, pch=16)
 
 ################
@@ -115,8 +115,30 @@ plot(iris, col=cols2, pch=16)
 # next, use a 'for' loop to create the above plot.
 ################
 
+plot(iris$Petal.Length,iris$Sepal.Width,
+     xlab='Petal length',ylab='Sepal length',
+     col=cols,
+     pch=16,
+     las=1,
+     cex.axis=1.5,cex.lab=1.5)
+
+legend("topleft",
+       legend=unique(iris$Species),
+       text.col=c("hotpink", "plum", "cornflowerblue"),
+       pch=16,
+       col=c("hotpink", "plum", "cornflowerblue"))
+
+abline(lm(Sepal.Width[iris$Species=='setosa'] ~ Petal.Length[iris$Species=='setosa'] + Species - 1, data=iris))
+
+fit_with_sp=lm(Sepal.Width ~ Petal.Length + Species - 1, data=iris)
+summary(fit_with_sp)
+
+fit_with_sp_with_int=lm(Sepal.Length ~ Petal.Length * Species - 1, data=iris)
+summary(fit_with_sp_with_int)
+
+
 ## gradient colors - color code the points by petal length
-windows()
+dev.new()
 plot(iris$Petal.Length,iris$Sepal.Length, xlab='Petal length',ylab='Sepal length',pch=16, # same as above...
 		 col=rainbow(max(iris$Petal.Length)*10)[iris$Petal.Length*10]) # set a color Palette 'rainbow' and assign colors by petal length 
 
@@ -127,13 +149,13 @@ plot(iris$Petal.Length,iris$Sepal.Length, xlab='Petal length',ylab='Sepal length
 # create a random interaction matrix:
 mat_data=matrix(data =  rnorm(225,0,5) , nrow = 15, ncol = 15) ## you can potentially replace rnorm with rexp(225,0.75) and with runif(225,0,5) 
 diag(mat_data)=1 # set the diagonal to 1 cause each individual interacts with itself by definition
-windows() # plot the interaction matrix
+dev.new() # plot the interaction matrix
 image(mat_data) 
 # turn the adjacency matrix to a network object
 net=graph.adjacency(mat_data,diag=FALSE,mode="undirected", weighted=TRUE)
 E(net) # look at the edges of the object
 E(net)$width <- E(net)$weight # set edge width to the weight
-windows() # plot the network
+dev.new() # plot the network
 plot(net,vertex.color=rainbow(10),layout=layout.fruchterman.reingold)
 
 
@@ -154,7 +176,7 @@ for (tt in 1:ttMax) {
 	NN[tt+1] <- RR*NN[tt]
 }
 # plot the results
-windows()
+dev.new()
 plot(1:(ttMax+1), NN, xlab="Time", ylab="Population size (N)", col='blue', pch=16, las=1)
 # add a line:
 lines(1:(ttMax+1), NN, xlab="Time", ylab="Population size (N)", col='blue', las=1)

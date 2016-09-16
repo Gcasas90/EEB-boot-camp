@@ -28,11 +28,13 @@ for(i in 1:10)
 
 # Exercise 3
 
-Variable | Start Value | End Value
----- | ---- | ----
-dogs | 10 | 15
-meatloaf | 0 | -30
-bubbles | 12 | -4
+Variable | dogs | meatloaf | bubbles
+---- | :----: | :----: | :----:
+1st Iteration | 10 -- 11 | 0 -- -4 | 12 -- -1
+2nd Iteration | 11 -- 12 | -4 -- -9 | -1 -- -2
+3rd Iteration | 12 -- 13 | -9 -- -15 | -2 -- -3
+4th Iteration | 13 -- 14 | -15 -- -22 | -3 -- -4
+5th Iteration | 14 -- 15 | -22 -- -30 | ---
 
 \newpage
 
