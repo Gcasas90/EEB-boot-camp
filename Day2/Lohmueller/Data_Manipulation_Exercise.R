@@ -32,7 +32,7 @@ for (p in c(0.05, 0.01, 0.001))
 {
     below_thr <- sum(pvals<p)
     proportion <- round(below_thr/num_pval, digits=4)
-    print(paste0(Below_Thr, " SNPs have p-value under ", p, "(", proportion*100, "%)"))
+    print(paste0(below_thr, " SNPs have p-value under ", p, "(", proportion*100, "%)"))
 }
 
 ## Calculate the expected pvalues (1d)
